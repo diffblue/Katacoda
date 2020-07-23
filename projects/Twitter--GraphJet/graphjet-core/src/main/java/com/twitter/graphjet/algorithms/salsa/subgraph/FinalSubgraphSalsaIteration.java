@@ -1,0 +1,41 @@
+/**
+ * Copyright 2016 Twitter. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package com.twitter.graphjet.algorithms.salsa.subgraph;
+
+import com.twitter.graphjet.algorithms.salsa.SalsaNodeVisitor;
+
+public class FinalSubgraphSalsaIteration extends LeftSubgraphSalsaIteration {
+  /**
+   * This constructs a left-to-right iteration on the subgraph that will also construct the social
+   * proof while running the iteration
+   *
+   * @param salsaSubgraphInternalState  contains all the internal state for the subgraph iteration
+   */
+  public FinalSubgraphSalsaIteration(SalsaSubgraphInternalState salsaSubgraphInternalState) {
+    super(
+        salsaSubgraphInternalState,
+        new SalsaNodeVisitor.WeightedNodeVisitorWithSocialProof(
+            salsaSubgraphInternalState.getVisitedRightNodes()));
+  }
+
+  @Override
+  public void runSingleIteration() {
+    LOG.info("SALSA: running final subgraph iteration");
+    salsaSubgraphInternalState.traverseSubgraphLeftToRight(nodeVisitor);
+  }
+}
