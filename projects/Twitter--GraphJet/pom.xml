@@ -67,6 +67,7 @@
         <configuration>
           <forkMode>always</forkMode>
           <argLine>-Xmx1024m</argLine>
+          <argLine>-Djacoco-agent.destfile=${project.build.directory}/jacoco.exec</argLine>
         </configuration>
       </plugin>
       <plugin>
@@ -95,6 +96,27 @@
             <configuration>
               <additionalparam>-Xdoclint:none</additionalparam>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.5</version>
+        <executions>
+          <execution>
+            <id>instrument</id>
+            <phase>process-test-classes</phase>
+            <goals>
+              <goal>instrument</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>restore-instrumented-classes</id>
+            <phase>test</phase>
+            <goals>
+              <goal>restore-instrumented-classes</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
