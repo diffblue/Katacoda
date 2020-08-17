@@ -25,13 +25,7 @@ if [ "$?" != "0" ]; then
         exit 1
 fi
 
-#SETUP: Download projects
-git clone https://github.com/diffblue/Katacoda
-if [ "$?" != "0" ]; then
-        echo "Cannot execute: git clone <Katacoda>" 1>&2
-        exit 1
-fi
-
+#SETUP: Project dependencies
 cp /root/Katacoda/projects /root/ -r
 
 #FUNCTION: build out dependencies for given repo
