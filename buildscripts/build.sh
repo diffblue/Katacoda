@@ -1,3 +1,5 @@
+echo " Run this script with <<source>> Unix command\n" 
+
 #SETUP: Download and install dcover
 read -p 'DCover URL: ' dcover_path
 
@@ -52,3 +54,4 @@ buildout
 rm -rf /root/projects
 mv /root/Katacoda/projects* /root/
 rm -rf /root/Katacoda
+cd /root
