@@ -12,6 +12,10 @@
       {
         "title": "Step 2 - Generate unit tests for Spring-Petclinic project",
         "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Check the generated tests",
+        "text": "step3.md"
       }
     ],
     "intro": {
