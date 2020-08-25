@@ -4,6 +4,7 @@ org/springframework/samples/petclinic/owner/VisitControllerTests.class
 org/springframework/samples/petclinic/owner/PetControllerTests.class
 org/springframework/samples/petclinic/owner/PetTypeFormatterTests$2.class
 org/springframework/samples/petclinic/service/ClinicServiceTests.class
+org/springframework/samples/petclinic/owner/OwnerControllerDiffblueTest.class
 org/springframework/samples/petclinic/owner/PetTypeFormatterTests$1.class
 org/springframework/samples/petclinic/vet/VetTests.class
 org/springframework/samples/petclinic/vet/VetControllerTests.class
